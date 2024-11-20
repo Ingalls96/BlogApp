@@ -17,7 +17,7 @@ namespace BlogApp.Models.Domain
         public string OwnerID { get; set; } = string.Empty; //represents the physical value in the database
         public BlogUser Owner { get; set; } = null!; //navigation property for MVCUser
 
-        public int PostIdNumber { get; set; }
+        public int PostId { get; set; }
         //navigation princple one side 
         public Post Post { get; set; } = null!;
     }

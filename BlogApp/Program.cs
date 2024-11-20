@@ -4,6 +4,8 @@ using BlogApp.Data.Config;
 using BlogApp.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +24,7 @@ builder.Services.AddIdentity<BlogUser, IdentityRole>(options => {
 
 //Add connection string
 //builder.Services.AddDbContext<BasicDBContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("BasicMVCContextString")));
-builder.Services.AddDbContext<AuthDBContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("BlogConnectionString")));
+builder.Services.AddDbContext<AuthDBContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 var app = builder.Build();

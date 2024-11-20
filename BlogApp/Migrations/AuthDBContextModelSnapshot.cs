@@ -15,7 +15,7 @@ namespace BlogApp.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
             modelBuilder.Entity("BlogApp.Models.Domain.Comment", b =>
                 {
@@ -40,9 +40,6 @@ namespace BlogApp.Migrations
                     b.Property<int>("PostId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PostIdNumber")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.HasIndex("OwnerID");
@@ -50,6 +47,17 @@ namespace BlogApp.Migrations
                     b.HasIndex("PostId");
 
                     b.ToTable("Comments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CommentText = "Comment 1",
+                            CreateDate = new DateTime(2024, 11, 19, 19, 8, 2, 986, DateTimeKind.Local).AddTicks(3982),
+                            EditDate = new DateTime(2024, 11, 19, 19, 8, 2, 986, DateTimeKind.Local).AddTicks(3983),
+                            OwnerID = "1",
+                            PostId = 1
+                        });
                 });
 
             modelBuilder.Entity("BlogApp.Models.Domain.Post", b =>
@@ -77,6 +85,16 @@ namespace BlogApp.Migrations
                     b.HasIndex("OwnerID");
 
                     b.ToTable("Posts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateDate = new DateTime(2024, 11, 19, 19, 8, 2, 986, DateTimeKind.Local).AddTicks(3938),
+                            EditDate = new DateTime(2024, 11, 19, 19, 8, 2, 986, DateTimeKind.Local).AddTicks(3969),
+                            OwnerID = "1",
+                            PostText = "Test Post 1"
+                        });
                 });
 
             modelBuilder.Entity("BlogApp.Models.Identity.BlogUser", b =>
@@ -149,6 +167,21 @@ namespace BlogApp.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0b49bac2-14b2-4fa1-afe7-591a79292a2e",
+                            EmailConfirmed = false,
+                            FirstName = "Default Application User",
+                            LastName = "DumDum",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e2c9e8e4-a5cb-4d32-846b-b927d2c9896a",
+                            TwoFactorEnabled = false
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -256,6 +289,8 @@ namespace BlogApp.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
