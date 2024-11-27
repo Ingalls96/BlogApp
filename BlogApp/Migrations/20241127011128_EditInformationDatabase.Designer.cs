@@ -3,6 +3,7 @@ using System;
 using BlogApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogApp.Migrations
 {
     [DbContext(typeof(AuthDBContext))]
-    partial class AuthDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241127011128_EditInformationDatabase")]
+    partial class EditInformationDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -53,8 +56,8 @@ namespace BlogApp.Migrations
                         {
                             Id = 1,
                             CommentText = "Comment 1",
-                            CreateDate = new DateTime(2024, 11, 26, 20, 48, 48, 126, DateTimeKind.Local).AddTicks(815),
-                            EditDate = new DateTime(2024, 11, 26, 20, 48, 48, 126, DateTimeKind.Local).AddTicks(818),
+                            CreateDate = new DateTime(2024, 11, 26, 20, 11, 28, 505, DateTimeKind.Local).AddTicks(8264),
+                            EditDate = new DateTime(2024, 11, 26, 20, 11, 28, 505, DateTimeKind.Local).AddTicks(8490),
                             OwnerID = "1",
                             PostId = 1
                         });
@@ -90,8 +93,8 @@ namespace BlogApp.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 11, 26, 20, 48, 48, 126, DateTimeKind.Local).AddTicks(717),
-                            EditDate = new DateTime(2024, 11, 26, 20, 48, 48, 126, DateTimeKind.Local).AddTicks(779),
+                            CreateDate = new DateTime(2024, 11, 26, 20, 11, 28, 505, DateTimeKind.Local).AddTicks(8170),
+                            EditDate = new DateTime(2024, 11, 26, 20, 11, 28, 505, DateTimeKind.Local).AddTicks(8228),
                             OwnerID = "1",
                             PostText = "Test Post 1"
                         });
@@ -171,7 +174,7 @@ namespace BlogApp.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d22e433d-b1c2-4334-8c36-d14019c0c68b",
+                            ConcurrencyStamp = "100c60f2-f7ef-476c-8ac5-dd3c9312c507",
                             Email = "blah@blah.com",
                             EmailConfirmed = false,
                             FirstName = "Default Application User",
@@ -179,9 +182,8 @@ namespace BlogApp.Migrations
                             LockoutEnabled = false,
                             PhoneNumber = "555-555-5555",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "72908a83-c631-4408-b7c3-93fad4684ef4",
-                            TwoFactorEnabled = false,
-                            UserName = "user"
+                            SecurityStamp = "bb5ccc8f-eef6-4fab-8d53-ef7ea5b6ee30",
+                            TwoFactorEnabled = false
                         });
                 });
 
