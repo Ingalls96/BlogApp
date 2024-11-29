@@ -3,6 +3,7 @@ using System;
 using BlogApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogApp.Migrations
 {
     [DbContext(typeof(AuthDBContext))]
-    partial class AuthDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241128013953_PostsTable")]
+    partial class PostsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -154,7 +157,7 @@ namespace BlogApp.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "049d9547-1d84-4745-a06d-60264121590c",
+                            ConcurrencyStamp = "0af31cf6-3e76-44f5-89fe-dc84d59be948",
                             Email = "blah@blah.com",
                             EmailConfirmed = false,
                             FirstName = "Default Application User",
@@ -162,7 +165,7 @@ namespace BlogApp.Migrations
                             LockoutEnabled = false,
                             PhoneNumber = "555-555-5555",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ecc2276-5886-4e51-8cbc-27860e185b51",
+                            SecurityStamp = "2552b380-a4da-4c85-b3bd-546dfc2efb44",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });

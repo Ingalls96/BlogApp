@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
 namespace BlogApp.Controllers
@@ -176,8 +178,6 @@ namespace BlogApp.Controllers
                     ModelState.AddModelError("", "Error creating user: " + ex.Message);
                 }
             }
-
-            // If the model is invalid or there's an error, return the form with validation errors
             return View(newUser);
         }
 
@@ -212,8 +212,29 @@ namespace BlogApp.Controllers
 
             return (errors.Count == 0, errors);
         }
+        //GET USER DETAILS
+        [HttpGet]
+        public async Task<IActionResult> UserDetails(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound(); // Return a NotFound if ID is null or empty.
+            }
 
+            var user = await _data.Users
+                .Include(u => u.Posts) // Include posts associated with the user
+                .Include(u => u.Comments) // Include comments associated with the user
+                .FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound(); // If no user is found, return a NotFound response.
+            }
 
-
+            // If user is found, pass it to the view
+            return View(user);
+        }
     }
+
+
 }
+

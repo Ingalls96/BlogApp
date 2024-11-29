@@ -1,0 +1,44 @@
+@model BlogApp.Models.Identity.BlogUser
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>@Model.UserName's Details</h1>
+
+<div>
+    <strong>Username:</strong> @Model.UserName
+</div>
+<div>
+    <strong>First Name:</strong> @Model.FirstName
+</div>
+
+<h3>Posts by @Model.UserName:</h3>
+@if (Model.Posts.Any())
+{
+    <ul>
+        @foreach (var post in Model.Posts)
+        {
+            <li>@post.Title</li>
+        }
+    </ul>
+}
+else
+{
+    <p>This user has no posts.</p>
+}
+
+<h3>Comments by @Model.UserName:</h3>
+@if (Model.Comments.Any())
+{
+    <ul>
+        @foreach (var comment in Model.Comments)
+        {
+            <li>@comment.CommentText</li> <!-- Display comment content or other relevant info -->
+        }
+    </ul>
+}
+else
+{
+    <p>This user has no comments.</p>
+}

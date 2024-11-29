@@ -30,12 +30,12 @@ namespace BlogApp.Data.Context
             model.Entity<BlogUser>().HasData(
                 new BlogUser { Id = "1", FirstName = "Default Application User", LastName = "DumDum", UserName ="user", Email = "blah@blah.com", PhoneNumber = "555-555-5555" }
             );
-            model.Entity<Post>().HasData(
-                new Post { Id = 1, CreateDate = DateTime.Now, EditDate = DateTime.Now, OwnerID = "1", PostText = "Test Post 1" }
-            );
-            model.Entity<Comment>().HasData(
-                new Comment { Id = 1, CreateDate = DateTime.Now, EditDate = DateTime.Now, OwnerID = "1", CommentText = "Comment 1", PostId = 1 }
-            );
+            //model.Entity<Post>().HasData(
+              //  new Post { Id = 1, CreateDate = DateTime.Now, EditDate = DateTime.Now, OwnerID = "1", PostText = "Test Post 1" }
+            //);
+            //model.Entity<Comment>().HasData(
+              //  new Comment { Id = 1, CreateDate = DateTime.Now, EditDate = DateTime.Now, OwnerID = "1", CommentText = "Comment 1", PostId = 1 }
+            //);
         }
     }
 }
