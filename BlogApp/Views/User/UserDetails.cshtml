@@ -19,7 +19,7 @@
     <ul>
         @foreach (var post in Model.Posts)
         {
-            <li>@post.Title</li>
+            <a href="@Url.Action("PostDetails", "Post", new {id = post.PostId})">@post.Title</a>
         }
     </ul>
 }
@@ -34,7 +34,7 @@ else
     <ul>
         @foreach (var comment in Model.Comments)
         {
-            <li>@comment.CommentText</li> <!-- Display comment content or other relevant info -->
+            <li>@comment.CommentText</li>
         }
     </ul>
 }

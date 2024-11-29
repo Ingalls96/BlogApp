@@ -1,0 +1,51 @@
+@model BlogApp.Models.Domain.Post
+
+@{
+    ViewData["Title"] = "PostDetails";
+}
+
+<h1>@Model.Title</h1>
+
+<div>
+    <strong>Posts by:</strong>
+    <span>@Model.Owner.UserName</span>
+</div>
+
+@if (User.Identity.IsAuthenticated && Model.Owner.UserName == User.Identity.Name)
+{
+    <form asp-action="DeletePost" method="post">
+        <input type="hidden" name="id" value="@Model.PostId" />
+        <button type="submit" class="btn btn-danger">Delete Post</button>
+    </form>
+}
+
+<div>
+    <strong>Content:</strong>
+    <p>@Model.PostText</p>
+</div>
+
+<hr />
+
+<h3>Comments</h3>
+<p>Comments will go here</p>
+
+@if (Model.Comments.Any())
+{
+    <ul>
+        @foreach (var comment in Model.Comments)
+        {
+            <li>@comment.Owner.UserName:-- @comment.CommentText</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No Comments yet. Be the first to comment!</p>
+}
+
+
+<form asp-action="AddComment" method="post">
+    <input type="hidden" name="PostId" value="@Model.PostId" />
+    <textarea name="CommentText" placeholder="Write a comment..."></textarea>
+    <button type="submit">Post Comment</button>
+</form>

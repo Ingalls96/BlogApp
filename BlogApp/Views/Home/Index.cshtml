@@ -3,6 +3,11 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <li class="nav-item">
+        <form asp-controller="Post" asp-action="CreatePost" method="get" class="d-inline">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="nav-link text-dark btn btn-primary">New Post</button>
+        </form>
+    </li>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core 2</a>.</p>
 </div>

@@ -20,8 +20,6 @@
         <span asp-validation-for="PostText" class="text-danger"></span>
     </div>
     
-    <!-- Optionally handle Owner and Comments -->
-    <!-- If Owner is a logged-in user, you could bind it manually here -->
     <input type="hidden" asp-for="OwnerID" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
     
     <div class="form-group">

@@ -7,7 +7,7 @@ namespace BlogApp.Models.Domain
 
     public class Post
     {
-        public int Id { get; set; }
+        public int PostId { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]

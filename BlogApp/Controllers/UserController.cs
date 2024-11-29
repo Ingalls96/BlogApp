@@ -97,7 +97,7 @@ namespace BlogApp.Controllers
             {
                 return NotFound();
             }
-            return View(user); // Return the user to confirm deletion
+            return View(user);
         }
 
         //DELETE USER FUNCTION - Deletion of user
@@ -122,7 +122,7 @@ namespace BlogApp.Controllers
             _data.BlogUsers.Remove(user);
             await _data.SaveChangesAsync();
 
-            return Redirect("/User/ListUsers"); // Redirect to the list of users
+            return Redirect("/User/ListUsers");
         }
 
         //CREATE USER - Get Action for empty field view
@@ -150,8 +150,6 @@ namespace BlogApp.Controllers
                         {
                             ModelState.AddModelError("Password", error);
                         }
-
-                        // Return the view with the error messages
                         return View(newUser);
                     }
 
@@ -161,12 +159,10 @@ namespace BlogApp.Controllers
 
                     if (result.Succeeded)
                     {
-                        // Redirect to the list of users after successful creation
                         return RedirectToAction(nameof(ListUsers));
                     }
                     else
                     {
-                        // Add errors from the Identity result to the model state
                         foreach (var error in result.Errors)
                         {
                             ModelState.AddModelError("", error.Description);
@@ -218,7 +214,7 @@ namespace BlogApp.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                return NotFound(); // Return a NotFound if ID is null or empty.
+                return NotFound();
             }
 
             var user = await _data.Users
@@ -227,10 +223,8 @@ namespace BlogApp.Controllers
                 .FirstOrDefaultAsync(u => u.Id == id);
             if (user == null)
             {
-                return NotFound(); // If no user is found, return a NotFound response.
+                return NotFound(); 
             }
-
-            // If user is found, pass it to the view
             return View(user);
         }
     }
