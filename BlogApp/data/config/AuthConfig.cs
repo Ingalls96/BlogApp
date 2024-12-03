@@ -49,10 +49,6 @@ namespace BlogApp.Data.Config
             }
         }
 
-
-
-
     }
-
 
 }

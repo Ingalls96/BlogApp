@@ -45,7 +45,6 @@ namespace BlogApp.Controllers
             {
                 return NotFound();
             }
-
             return View(user);
         }
 
@@ -225,7 +224,6 @@ namespace BlogApp.Controllers
             return View(user);
         }
     }
-
 
 }
 

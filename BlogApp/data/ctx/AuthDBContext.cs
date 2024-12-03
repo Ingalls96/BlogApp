@@ -16,8 +16,6 @@ namespace BlogApp.Data.Context
         public AuthDBContext(DbContextOptions<AuthDBContext> options) : base(options)
         {
 
-
-
         }
         protected override void OnModelCreating(ModelBuilder model)
         {

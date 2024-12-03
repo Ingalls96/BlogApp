@@ -17,7 +17,6 @@ namespace BlogApp.Models.Identity
         public override string? UserName {get; set; }
         public override string? Email { get; set; }
 
-        //navigation properties
         public ICollection<Post> Posts { get; set; } = new List<Post>();
 
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
@@ -25,7 +24,6 @@ namespace BlogApp.Models.Identity
         public string FullName() => FirstName + " " + LastName;
 
         public int GetNumericId() => int.Parse(Id);
-
 
     }
 }
