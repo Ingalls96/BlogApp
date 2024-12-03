@@ -1,5 +1,6 @@
-html {
-  font-size: 14px;
+html, body {
+  height: 100% !important;
+  margin: 0 !important;
 }
 
 @media (min-width: 768px) {
@@ -18,6 +19,122 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  background-color: #313F2C;
 }
+
+.btn-primary{
+  background-color:rgb(19, 18, 18);
+  border-color: darkgray;
+  color:darkgray;
+  padding: 10px  !important;
+}
+
+.nav-link.btn.btn-primary{
+  background-color: rgb(19, 18, 18);
+  border-color: darkgray;
+  color: darkgray;
+}
+
+.navbar{
+  background-color:rgb(19, 18, 18);
+  color: darkgray;
+}
+
+.navbar-nav .nav-link{
+  color: darkgray !important;
+}
+
+.navbar-brand{
+  color: darkgray !important;
+}
+
+.navbar-text{
+  color: darkgray !important;
+}
+
+input{
+  background: rgb(19, 18, 18) !important;
+  color: darkgray !important;
+}
+
+textarea{
+  background: rgb(19, 18, 18) !important;
+  color: darkgray !important;
+  height: 200px !important;
+  padding: 10px !important;
+}
+
+h1, th, td, label, hr, h3, strong{
+  color: darkgray !important;
+}
+
+div{
+  color: darkgray;
+  padding: 5px !important;
+}
+
+p{
+  color: darkgray;
+}
+
+main{
+  height: 100% !important;
+  width: 100% !important;
+  padding: 20px !important;
+  background-color:rgb(19, 18, 18) !important;
+  border: 1px solid white !important;
+  padding: 20px !important;
+}
+
+footer{
+  margin-top: auto;
+}
+
+.HomePostBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 0.25rem;
+  background-color: darkgray;
+  border: 1px solid rgb(19, 18, 18);
+  color: rgb(19, 18, 18);
+  border-radius: 0.25rem;
+}
+
+.HomePostBox a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.HomePostText{
+  color: rgb(19, 18, 18) !important;
+}
+
+.HomePostBox .d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.HomePostBox .d-flex span {
+  margin-right: 8px;
+}
+
+.PostSquare{
+  height: 200px;
+  border: 2px solid darkgray;
+  padding: 5px;
+}
+
+.PostDetailComment {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 5px;
+}
+
+
+
 

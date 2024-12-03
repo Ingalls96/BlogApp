@@ -1,13 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<BlogApp.Models.Domain.Post>
+
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <li class="nav-item">
-        <form asp-controller="Post" asp-action="CreatePost" method="get" class="d-inline">
-        @Html.AntiForgeryToken()
-        <button type="submit" class="nav-link text-dark btn btn-primary">New Post</button>
-        </form>
-    </li>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core 2</a>.</p>
+<h1>Welcome @User.Identity.Name</h1>
+
+<div>
+    <a href="@Url.Action("CreatePost", "Post")" class="btn btn-primary">New Post</a>
 </div>
+
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <ul class="list-group mt-4">
+        @foreach (var post in Model)
+        {
+            <li class="HomePostBox">
+                <a href="@Url.Action("PostDetails", "Post", new { id = post.PostId})" class="text-decoration-none d-flex justify-content-between align-items-center w-100">
+                    <div>
+                        <strong class="HomePostText">@post.Title</strong>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="HomePostText">
+                            Posted by: @(post.Owner != null ? post.Owner.UserName : "Unknown User")
+                        </span>
+                        <span class="mx-3">|</span>
+                        <span class="HomePostText">
+                            @(post.CreateDate.ToString("MMMM dd, yyyy hh:mm tt") ?? "Unknown Date")
+                        </span>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No new posts.</p>
+}

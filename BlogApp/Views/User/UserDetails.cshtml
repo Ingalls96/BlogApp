@@ -20,6 +20,7 @@
         @foreach (var post in Model.Posts)
         {
             <a href="@Url.Action("PostDetails", "Post", new {id = post.PostId})">@post.Title</a>
+            <p></p>
         }
     </ul>
 }

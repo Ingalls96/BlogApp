@@ -37,6 +37,7 @@ namespace BlogApp.Controllers
             {
 
                 post.OwnerID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                post.CreateDate = DateTime.Now;
 
                 // Add the post to the database
                 _context.Add(post);
