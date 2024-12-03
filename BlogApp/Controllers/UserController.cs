@@ -67,7 +67,7 @@ namespace BlogApp.Controllers
                     return NotFound();
                 }
 
-                // Update the entity with the new values
+                // Update with the new values
                 existingUser.FirstName = updatedUser.FirstName;
                 existingUser.LastName = updatedUser.LastName;
                 existingUser.Email = updatedUser.Email;
@@ -141,7 +141,6 @@ namespace BlogApp.Controllers
             {
                 try
                 {
-                    // Validate the password before attempting to create the user
                     var passwordValidationResult = ValidatePassword(password);
                     if (!passwordValidationResult.IsValid)
                     {
@@ -153,8 +152,6 @@ namespace BlogApp.Controllers
                         return View(newUser);
                     }
 
-
-                    // Create the user using UserManager with a password
                     var result = await _userManager.CreateAsync(newUser, password);
 
                     if (result.Succeeded)
@@ -218,8 +215,8 @@ namespace BlogApp.Controllers
             }
 
             var user = await _data.Users
-                .Include(u => u.Posts) // Include posts associated with the user
-                .Include(u => u.Comments) // Include comments associated with the user
+                .Include(u => u.Posts)
+                .Include(u => u.Comments)
                 .FirstOrDefaultAsync(u => u.Id == id);
             if (user == null)
             {

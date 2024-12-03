@@ -6,7 +6,7 @@ namespace BlogApp.Models.Identity
     {
         public string UserName { get; set; }
         public string FirstName { get; set; }
-        public List<Post> Posts { get; set; } // Assuming Post is a model that holds posts
-        public List<Comment> Comments { get; set; } // Assuming Comment is a model that holds comments
+        public List<Post> Posts { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }
